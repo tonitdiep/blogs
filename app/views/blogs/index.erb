@@ -1,0 +1,11 @@
+<h1>we are here</h1>
+<h2>Display Each Blog</h2>
+
+<% @blogs.each do |blog| %>
+    <ol>
+    <a href="/blogs/<%=blog.id%>"><%= blog.title %></a>
+    </ol>
+    
+<% end %> 
+
+<!-- add link to blog show page     -->

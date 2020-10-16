@@ -1,0 +1,15 @@
+<h1>Edit Form</h1> 
+
+
+
+<form method="post" action="/blogs/<%= @blog.id%>/edit">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="content" value="<%= @blog.content%>" id="content">
+
+  <input type="submit" value="submit">
+</form>
+
+<form method="post" action="/blogs/<%=@blog.id%>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Blog">
+</form>
