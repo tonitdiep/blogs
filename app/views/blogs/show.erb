@@ -3,9 +3,10 @@
 <p><%= @blog.content %></p>
 <h3>Created by <%=@blog.user.username%></h3>
 
-<a href="/blogs/<%=@blog.id%>/edit">Edit Tweet</a>
+<a href="/blogs/<%=@blog.id%>/edit">Edit Your Blog</a>
  
 
 <form method="get" action="/blogs">
   <input type="submit" value="Go Back">
 </form>
+

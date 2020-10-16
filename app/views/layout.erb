@@ -18,7 +18,7 @@
         <h3>always here</h3>
         
         <% if is_logged_in? %>
-          <%= current_user.username %>
+          <i><%= current_user.username %></i>
           <a href='/logout'>Logout</a>
         <% else %>
           <a href='/login'>Login</a>

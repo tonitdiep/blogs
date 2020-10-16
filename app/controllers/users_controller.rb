@@ -22,14 +22,11 @@ class UsersController < ApplicationController
         end
     end
 
-    get '/login' do 
-       
+    get '/login' do   
         if !is_logged_in?
-
             erb :'/users/login'
         else
             redirect '/blogs'
-            
         end   
     end
 
@@ -48,7 +45,7 @@ class UsersController < ApplicationController
             flash[:message] = "Invalid Username or Password"
             # redirect '/login'
             erb :'/users/login'
-            # erb :'/login'
+            
         end
     end
     get '/logout' do 

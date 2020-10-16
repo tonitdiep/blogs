@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
         erb :'/blogs/index'
     end
 
-    get '/blogs/new' do #create #form make new product
+    get '/blogs/new' do #create#form make new product
         if is_logged_in?
             
             erb :'/blogs/new'
@@ -14,12 +14,6 @@ class BlogsController < ApplicationController
         end
     end
 
-
-# => #<ActiveRecord::Relation [#<Blog id: 1, title: "how to code", content: "use binding.pry", user_id: "1">, #<Blog id: 2, title: "gardening basil", content: "use binding.pry", user_id: "1">, #<Blog id: 3, title: nil, content: "more on cabbage stew", user_id: "4">, #<Blog id: 4, title: nil, content: "Fall Yams Casserole", user_id: "5">]>
-# >> User.all
-# D, [2020-10-14T20:52:22.134696 #10909] DEBUG -- :   User Load (49.6ms)  SELECT "users".* FROM "users"
-# => #<ActiveRecord::Relation [#<User id: 1, username: "toni", password_digest: "$2a$12$fKkybp6SMuNfyeqCQvsDVeRDGdAbcuUxGR9bjBvF7rL...">, #<User id: 2, username: "Bart", password_digest: "$2a$12$mCM3v6ZE.ntmrNcLy0W51e1eYVSlacEcMA9VH6shzP9...">, #<User id: 3, username: "mint", password_digest: "$2a$12$HYmKrOMx8C.26A67znfkeu9150vzwkg7jgD.iSumUQg...">, #<User id: 4, username: "cabbage", password_digest: "$2a$12$9EgFeaeZ.428dHqaOeEFaeMRPExFCYRox6Zti88x8YA...">, #<User id: 5, username: "basil", password_digest: "$2a$12$4wKbkQnK2uHW58y8sgQkVuG49t0QQ2kzREE.wnXCiyM...">]>
-# >> 
     post '/blogs' do #create new blog #show page
         if current_user && params[:title] != "" && params[:content] != ""
             @blog = Blog.create(title: params[:title], content: params[:content], user_id: current_user.id)
