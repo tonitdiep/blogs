@@ -1,7 +1,6 @@
 
 # Sinatra Project
-Hello! My Sinatra Project, of a blog appication, that allow the user to do what and huh again?
- as a user database with access to skincare product reviews, as well as writing skincare product reviews. The concepts covered are ActiveRecord/SQL (database), has_many and belongs_to relationship, some ruby objects, along with minimial use of html and css.
+Hello! Welcome, to my Sinatra Project, of a blog appication. The concepts covered are SQL (database), MVC, ActiveRecord, has_many and belongs_to relationship, in the Ruby language, along with use of html and css.
 
 ## Installation
 Before you run this, be sure to run 'bundle install'.
@@ -9,7 +8,7 @@ Before you run this, be sure to run 'bundle install'.
 To run this, please 'type', "shotgun", into the terminal to start the server, and insert the given URL onto a web browser.
 
 ## Usage
-Application consists of a login/logout for a user, as well as signup feature. A user will engage with the webapp through products/index page to learn about thhese skincare product reviews, as well as to write their own skincare product reviews. With restrictions, a user cannot edit or delete other existing skincare product reviews.
+Application consists of a login/logout for a user, as well as signup feature. A user will engage with the webapp through blogs/index page to learn about these blog post entries, as well as to write their own blog entries. With restrictions, a user cannot edit or delete other user's existing blog entries.
 
 ## Development
 Run "shotgun" to start the server. 

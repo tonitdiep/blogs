@@ -7,17 +7,16 @@ class UsersController < ApplicationController
         end
     end
     post '/signup' do
-        #no duplicates username
-        @user = User.create(username: params[:username], password: params[:password])
-        # binding.pry
-        if @user.save 
-            # repetitive
-            # params[:username]  != "" && params[:password] != "" && User.find_by(username: params[:username]) == nil 
-            # @user = User.create(username: params[:username], password: params[:password])
-            session[:user_id] = @user.id
+
+        user = User.new(username: params[:username], password: params[:password])
+  
+        if user.save 
+           
+            session[:user_id] = user.id
             redirect '/blogs'
         else 
-            flash[:message] = @user.errors.full_messages
+            flash[:message] = user.errors.full_messages
+           
             redirect '/signup'
         end
     end
@@ -31,18 +30,18 @@ class UsersController < ApplicationController
     end
 
     post '/login' do 
-
+            # binding.pry
         #checks authentication of password to the username for accurracy? validness?
-        @user = User.find_by(username: params[:username]) 
+        user = User.find_by(username: params[:username]) 
    
         #check authenticate password
-        if @user && @user.authenticate(params[:password]) 
-            session[:user_id] = @user.id
+        if user && user.authenticate(params[:password]) 
+            session[:user_id] = user.id
             # redirect '/blogs/index'
             # erb :'/blogs'
             redirect '/blogs'
         else
-            flash[:message] = "Invalid Username or Password"
+            flash[:message] = "Invalid Credentials. Please try again."
             # redirect '/login'
             erb :'/users/login'
             
@@ -55,8 +54,7 @@ class UsersController < ApplicationController
         else
             redirect '/'
         end
-  
-        # redirect '/login'
+
     end
 
 end

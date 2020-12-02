@@ -16,10 +16,10 @@ class BlogsController < ApplicationController
 
     post '/blogs' do #create new blog #show page
         if current_user && params[:title] != "" && params[:content] != ""
-            @blog = Blog.create(title: params[:title], content: params[:content], user_id: current_user.id)
-            redirect "/blogs/#{@blog.id}"
+            blog = Blog.create(title: params[:title], content: params[:content], user_id: current_user.id)
+            redirect "/blogs/#{blog.id}"
         else
-            redirect "blogs/new"
+            redirect "/blogs/new"
            
         end
 
@@ -50,18 +50,18 @@ class BlogsController < ApplicationController
 
     patch '/blogs/:id/edit' do 
         if is_logged_in? && params[:blog] != ""
-            @blog = Blog.find_by_id(params[:id])
-            @blog.update(content: params[:content])
-            redirect "/blogs/#{@blog.id}"
+            blog = Blog.find_by_id(params[:id])
+            blog.update(content: params[:content])
+            redirect "/blogs/#{blog.id}"
         else
             redirect "/blogs/#{params[:id]}/edit"    
         end
     end
     delete '/blogs/:id' do 
         if is_logged_in?
-            @blog = Blog.find_by_id(params[:id])
-                if @blog.user_id == current_user.id
-                    @bog.delete
+            blog = Blog.find_by_id(params[:id])
+                if blog.user_id == current_user.id.to_s
+                    blog.delete
                 end
             redirect '/blogs'
         else
