@@ -3,8 +3,8 @@
 
 <form method="post" action="/blogs/<%= @blog.id%>/edit">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
+  Blog Title: <input type="text" name="title" value="<%= @blog.title%>" id="title">
   Blog Content: <input type="text" name="content" value="<%= @blog.content%>" id="content">
-
   <input type="submit" value="Submit Blog Edits">
 </form>
 

@@ -51,6 +51,7 @@ class BlogsController < ApplicationController
     patch '/blogs/:id/edit' do 
         if is_logged_in? && params[:blog] != ""
             blog = Blog.find_by_id(params[:id])
+            blog.update(title: params[:title])
             blog.update(content: params[:content])
             redirect "/blogs/#{blog.id}"
         else

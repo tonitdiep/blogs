@@ -3,7 +3,6 @@ require 'pry'
 require 'sinatra/flash'
 require 'sinatra'
 class ApplicationController < Sinatra::Base
-#webapp controller that knows about to speak sinatra ^
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -11,8 +10,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, ENV['SESSION_SECRET']
     register Sinatra::Flash
   end
-#configure block tells the controller where to look to 
-# find the views(pages w/ HTML to display text in the browser) and the public directory
+
   get "/" do
     erb :welcome
   end

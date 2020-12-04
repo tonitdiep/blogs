@@ -7,7 +7,7 @@ class UsersController < ApplicationController
         end
     end
     post '/signup' do
-
+       
         user = User.new(username: params[:username], password: params[:password])
   
         if user.save 
@@ -30,19 +30,15 @@ class UsersController < ApplicationController
     end
 
     post '/login' do 
-            # binding.pry
-        #checks authentication of password to the username for accurracy? validness?
+           
         user = User.find_by(username: params[:username]) 
-   
-        #check authenticate password
+  
         if user && user.authenticate(params[:password]) 
             session[:user_id] = user.id
-            # redirect '/blogs/index'
-            # erb :'/blogs'
             redirect '/blogs'
         else
             flash[:message] = "Invalid Credentials. Please try again."
-            # redirect '/login'
+    
             erb :'/users/login'
             
         end
