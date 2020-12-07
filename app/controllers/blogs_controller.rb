@@ -29,13 +29,13 @@ class BlogsController < ApplicationController
         if is_logged_in?
             @blog = Blog.find_by_id(params[:id])
             erb :'/blogs/show' 
-            # redirect '/blogs'
         else
             redirect '/login'
         end
     end
 
     get '/blogs/:id/edit' do 
+        # binding.pry
         if is_logged_in? 
             @blog = Blog.find_by_id(params[:id])
               if @blog.user == current_user
@@ -51,7 +51,6 @@ class BlogsController < ApplicationController
     patch '/blogs/:id/edit' do 
         if is_logged_in? && params[:blog] != ""
             blog = Blog.find_by_id(params[:id])
-            blog.update(title: params[:title])
             blog.update(content: params[:content])
             redirect "/blogs/#{blog.id}"
         else
@@ -59,6 +58,7 @@ class BlogsController < ApplicationController
         end
     end
     delete '/blogs/:id' do 
+        # binding.pry
         if is_logged_in?
             blog = Blog.find_by_id(params[:id])
                 if blog.user_id == current_user.id.to_s

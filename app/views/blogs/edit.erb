@@ -1,10 +1,11 @@
-<h1>Edit Form</h1> 
+<h1>Editing Time</h1> 
 
 
 <form method="post" action="/blogs/<%= @blog.id%>/edit">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  Blog Title: <input type="text" name="title" value="<%= @blog.title%>" id="title">
-  Blog Content: <input type="text" name="content" value="<%= @blog.content%>" id="content">
+  <h3><i><%= @blog.title %></i></h2> <br>
+  
+  Blog Content: <p><input type="text" name="content" size="20" value="<%= @blog.content%>" id="content"></input></p>
   <input type="submit" value="Submit Blog Edits">
 </form>
 
