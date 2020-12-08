@@ -62,7 +62,7 @@ class BlogsController < ApplicationController
         if is_logged_in?
             blog = Blog.find_by_id(params[:id])
                 if blog.user_id == current_user.id.to_s
-                    blog.delete
+                    blog.destroy
                 end
             redirect '/blogs'
         else

@@ -54,16 +54,5 @@ class UsersController < ApplicationController
 
     end
 
-    delete '/users' do 
-        if is_logged_in?
-            user = User.find_by_id(params[:id])
-                if user.user_id == current_user.id.to_s
-                    user.delete
-                end
-                redirect '/users'
-            else 
-                redirect '/login'
-            end 
-    end
 
 end
