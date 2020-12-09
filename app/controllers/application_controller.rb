@@ -18,6 +18,7 @@ class ApplicationController < Sinatra::Base
   not_found do 
     redirect to "/blogs"
   end
+  
   helpers do 
 
     def is_logged_in?

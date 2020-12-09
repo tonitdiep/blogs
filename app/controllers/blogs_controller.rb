@@ -5,10 +5,6 @@ class BlogsController < ApplicationController
         erb :'/blogs/index'
     end
 
-    get '/blogs/a' do 
-        erb :'/blogs/a'
-    end
-
     get '/blogs/new' do #create#form make new product
         if is_logged_in?
             
@@ -18,7 +14,6 @@ class BlogsController < ApplicationController
         end
     end
 
-    
 
     post '/blogs' do #create new blog #show page
         if current_user && params[:title] != "" && params[:content] != ""
@@ -42,6 +37,7 @@ class BlogsController < ApplicationController
             redirect '/login'
         end
     end
+
 
     get '/blogs/:id/edit' do 
         # binding.pry
