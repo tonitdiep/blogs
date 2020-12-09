@@ -5,6 +5,10 @@ class BlogsController < ApplicationController
         erb :'/blogs/index'
     end
 
+    get '/blogs/a' do 
+        erb :'/blogs/a'
+    end
+
     get '/blogs/new' do #create#form make new product
         if is_logged_in?
             
@@ -13,6 +17,8 @@ class BlogsController < ApplicationController
             redirect '/login'
         end
     end
+
+    
 
     post '/blogs' do #create new blog #show page
         if current_user && params[:title] != "" && params[:content] != ""
@@ -27,8 +33,11 @@ class BlogsController < ApplicationController
 
     get '/blogs/:id' do #read #show page
         if is_logged_in?
-            @blog = Blog.find_by_id(params[:id])
-            erb :'/blogs/show' 
+            if @blog = Blog.find_by_id(params[:id])
+                erb :'/blogs/show' 
+            else
+                redirect "/blogs"
+            end
         else
             redirect '/login'
         end
@@ -60,11 +69,16 @@ class BlogsController < ApplicationController
     delete '/blogs/:id' do 
         # binding.pry
         if is_logged_in?
-            blog = Blog.find_by_id(params[:id])
-                if blog.user_id == current_user.id.to_s
+           if blog = Blog.find_by_id(params[:id])
+            # binding.pry
+                if blog.user_id == current_user.id
+                    # binding.pry
                     blog.destroy
-                end
+                end  
             redirect '/blogs'
+            else
+                redirect '/blogs'
+            end
         else
             redirect '/login'
         end        

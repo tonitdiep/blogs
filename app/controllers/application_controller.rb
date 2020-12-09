@@ -15,7 +15,9 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-
+  not_found do 
+    redirect to "/blogs"
+  end
   helpers do 
 
     def is_logged_in?
@@ -23,6 +25,8 @@ class ApplicationController < Sinatra::Base
     end
     def current_user 
       @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
+
+      # @current_user will be assigned in User.find_by_id if there's a session [user_id]
     end
   end
 

@@ -3,9 +3,10 @@
 
 <h3><a href="/blogs/new">Create Blog!</a></h3><br>
 
-<% @blogs.each do |blog| %>
-    <ol>
-        <li> <a href="/blogs/<%=blog.id%>"><%= blog.title %></a> </li>
-    </ol>
+<ol>
+<% @blogs.each do |blog| %>   
+    <li> 
+        <a href="/blogs/<%=blog.id%>"><%= blog.title %></a> 
+    </li>
 <% end %> 
-
+</ol>
