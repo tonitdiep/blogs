@@ -1,6 +1,8 @@
 
 # Sinatra Project
-Hello! Welcome, to my Sinatra Project, of a blog appication. The concepts covered are SQL (database), MVC, ActiveRecord, has_many and belongs_to relationship, in the Ruby language, along with use of html and css.
+Hello! Welcome, to my Sinatra Project, of a blog appication. The concepts covered are SQL (database), MVC, ActiveRecord, has_many and belongs_to relationship, in the Ruby language, along with use of html and css. <br>
+
+🎥 [Demo](https://youtu.be/KgC9rXEINng)
 
 ## Installation
 Before you run this, be sure to run 'bundle install'.
